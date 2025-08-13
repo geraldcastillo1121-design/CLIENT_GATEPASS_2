@@ -1,0 +1,530 @@
+/* Login and Signup */
+body {
+    background: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logo-container {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.logo-img {
+    width: 320px;
+    height: 140px;
+    margin-bottom: 20px;
+}
+
+.form-wrapper {
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 24px 0;
+}
+
+.form {
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 24px 18px;
+}
+
+.form.active {
+    display: flex;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #d32f2f;
+    font-weight: 500;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.password-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-field input {
+    flex: 1;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #888;
+    user-select: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.btn-login, .btn-create-account {
+    background: #d32f2f;
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn-login:hover, .btn-create-account:hover {
+    background: #b71c1c;
+}
+
+.btn-create {
+    background: #fff;
+    color: #d32f2f;
+    border: 1px solid #d32f2f;
+    margin-top: 0;
+}
+
+.btn-create:hover {
+    background: #ffeaea;
+}
+
+.btn-back {
+    background: #fff;
+    color: #d32f2f;
+    border: none;
+    margin-top: 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.forgot-row {
+    text-align: center;
+    margin: 0;
+}
+
+.forgot-link {
+    color: #888;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #d32f2f;
+    margin: 12px 0;
+    box-shadow: 8px 4px 8px rgba(34, 34, 34, 0.5);
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 4px 16px;
+}
+.dashboard-header .logo-img {
+    height: 40px;
+    width: auto;
+    margin-bottom: 0;
+}
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Sidebar Menu */
+.side-menu {
+    position: fixed;
+    top: 0; right: 0;
+    width: 80vw;
+    max-width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.08);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+.close-btn {
+    align-self: side;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #888;
+    margin: 16px 18px 12px 0;
+    cursor: pointer;
+}
+.menu-option {
+    display: flex;
+    align-items: center;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #666;
+    padding: 18px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    background: #fafafa;
+    transition: background 0.2s;
+}
+.menu-option:hover {
+    background: #f2f2f2;
+}
+.profile-option {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #666;
+    background: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+}
+.profile-option .profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 14px;
+    background: #eee;
+}
+.profile-option span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #666;
+}
+.profile-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px 18px 18px;
+}
+.profile-menu .profile-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #eee;
+}
+.profile-menu span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #444;
+}
+.side-menu a {
+    padding: 16px 18px;
+    text-decoration: none;
+    color: #444;
+    font-size: 1.15rem;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+.side-menu a:hover {
+    background: #f7f7f7;
+}
+
+/* Dashboard Buttons */
+.dashboard-buttons {
+    display: flex;
+    justify-content: left;
+    gap: 18px;
+    margin: 24px 0 18px 18px;
+}
+
+.dashboard-btn {
+    background: #fff;
+    border: 1px solid #868484;
+    box-shadow: 0 12px 16px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.4s, transform 0.2s;
+    width: 110px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.dashboard-btn:hover {
+    box-shadow: 0 4px 12px rgba(211,47,47,0.15);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.dashboard-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+}
+
+.dashboard-btn span {
+    font-size: .8rem;
+    font-weight: 600;
+    color: #444;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Profile Card */
+.profile-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px;
+    margin: 18px auto;
+    max-width: 340px;
+    text-align: center;
+    border: 1px solid #d1d1d1;
+}
+.profile-card .profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    background: #eee;
+}
+.profile-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.profile-card form {
+    text-align: left;
+}
+.profile-card label {
+    font-weight: 500;
+    color: #444;
+    margin-top: 8px;
+    display: block;
+}
+.profile-card input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    background: #f7f7f7;
+}
+
+/* Forms */
+.form-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px;
+    margin: 18px auto;
+    max-width: 340px;
+}
+.form-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #d32f2f;
+    font-weight: 600;
+}
+.form-card label {
+    font-weight: 500;
+    color: #444;
+    margin-top: 8px;
+    display: block;
+}
+.form-card input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    background: #f7f7f7;
+}
+.form-card button[type="submit"] {
+    background: #d32f2f;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 12px;
+    width: 100%;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.form-card button[type="submit"]:hover {
+    background: #b71c1c;
+}
+
+/* History Section */
+.recent-title {
+    font-size: 1.2rem;
+    font-weight: 560;
+    color: #444;
+    margin: 18px 0 8px 0;
+    text-align: left;
+}
+.recent-history {
+    margin-left: 10px;
+}
+#historyList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 12px 24px 12px;
+}
+.history-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 4px 6px 10px 6px rgba(0,0,0,0.08);
+    padding: 10px 6px;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #d1d1d1;
+}
+/*Gate Pass*/
+.name {
+    justify-content: space-around;
+    margin-left: 60px;
+}
+.position {
+    justify-content: space-around;
+    margin-left: 42px;
+}
+.date {
+    justify-content: space-around;
+    margin-left: 70px;
+}
+.timeout {
+    justify-content: space-around;
+    margin-left: 38px;
+}
+.estin {
+    justify-content: space-around;
+    margin-left: 20px;
+}
+.purpose {
+    justify-content: space-around;
+    margin-left: 42px;
+}
+/*Official Business*/
+.names {
+    justify-content: space-around;
+    margin-left: 60px;
+}
+.positions {
+    justify-content: space-around;
+    margin-left: 42px;
+}
+.department {
+    justify-content: space-around;
+    margin-left: 16px;
+}
+.from {
+    justify-content: space-around;
+    margin-left: 63px;
+}
+.destination {
+    justify-content: space-around;
+    margin-left: 16px;
+}
+.dates {
+    justify-content: space-around;
+    margin-left: 68px;
+}
+.departure {
+    justify-content: space-around;
+    margin-left: 26px;
+}
+.arrival {
+    justify-content: space-around;
+    margin-left: 52px;
+}
+.card-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.status {
+    float: right;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.status.approve { background: #4caf50; color: #fff; }
+.status.pending { background: #ff9800; color: #fff; }
+.status.decline { background: #f44336; color: #fff; }
+
+.view-all-link {
+    color: #d32f2f;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 190px;
+    font-weight: 540;
+}
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.18);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 18px;
+    max-width: 340px;
+    width: 90vw;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    position: relative;
+}
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+}
+#allHistoryList {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 350px; /* Adjust as needed */
+    overflow-y: auto;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .dashboard-header, .profile-card, .form-card, .recent-title, #historyList {
+        max-width: 98vw;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .dashboard-buttons { gap: 8px; }
+    .dashboard-btn { width: 90px; padding: 10px 6px; }
+    .side-menu { width: 98vw; max-width: 98vw; }
+}
